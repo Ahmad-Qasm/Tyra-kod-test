@@ -1,0 +1,15 @@
+{
+  "shoppingStore": {
+    "addItemsToList": "Add items to the shopping list for TYRA coffee break",
+    "shoppingList": "Shopping list"
+  },
+  "item": {
+    "title": "Title",
+    "price": "Price",
+    "quantity": "Quantity",
+    "picked": "Picked"
+  },
+  "general": {
+    "save": "Save"
+  }
+}

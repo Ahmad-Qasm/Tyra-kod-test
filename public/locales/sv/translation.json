@@ -1,0 +1,15 @@
+{
+  "shoppingStore": {
+    "addItemsToList": "Lägg till produkter till shoppinglistan för TYRA's kaffe rast",
+    "shoppingList": "Shopping lista"
+  },
+  "item": {
+    "title": "Namn",
+    "price": "Pris",
+    "quantity": "Antal",
+    "picked": "Plockad"
+  },
+  "general": {
+    "save": "Spara"
+  }
+}

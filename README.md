@@ -6,6 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm install`
+
+Installs all the dependencies.
+
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -29,18 +33,21 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### The task from TYRA
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Resolve possible bugs in the code.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Style the view for a better UI. Preferably so that it melts with the logo of TYRA.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Make it a working shopping list to add items, remove items, set item as picked.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Feel free to enhance the code with components and better Typescript.
 
-## Learn More
+Feel free to come up with own ideas to make this a great shopping list and develop the view.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Good to know:
+We use tailwind as CSS framework.
+We use i18next for translations.
+We use FontAwesome for icons.
+We use sweetalert2 for more user friendly alerts, toasts and information popups.
+We use mobx as an observer for data and state management.
