@@ -33,6 +33,15 @@ function App() {
               }
             />
           </div>
+          <div className="w-[30px] rounded-full h-[30px] hover:scale-110 overflow-hidden text-center justify-center align-middle">
+            <Flags.ES
+              title="English"
+              onClick={() => changeLanguage("es")}
+              className={
+                "w-[45px] h-[45px] mt-[-7.5px] ml-[-7.5px] cursor-pointer hover:scale-110 justify-center align-middle"
+              }
+            />
+          </div>
         </div>
       </div>
       <ShoppingList />

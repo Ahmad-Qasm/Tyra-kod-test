@@ -1,5 +1,16 @@
 {
-    "shoppingStore": {
-      "addItemsToList": "Add items to the shopping list for TYRA coffee break"
-    }
+  "shoppingStore": {
+    "addItemsToList": "Agregar elementos a la lista de compras para el descanso de café de TYRA",
+    "shoppingList": "Lista de compras"
+  },
+  "item": {
+    "title": "Título",
+    "price": "Precio",
+    "quantity": "Cantidad",
+    "picked": "Seleccionado",
+    "remove": "Eliminar"
+  },
+  "general": {
+    "save": "Guardar"
   }
+}

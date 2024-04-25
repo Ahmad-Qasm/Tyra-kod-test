@@ -1,15 +1,29 @@
 import { observer } from "mobx-react";
-import { ShoppingListStoreContext } from "../store/shoppingStore";
+import { ShoppingListItem, ShoppingListStoreContext } from "../store/shoppingStore";
 import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Swal from "sweetalert2";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { v4 as uuidv4 } from "uuid";
 
-export const ShoppingList = observer(({}: {}) => {
-  const { removeFromShoppingList, addToShoppingList, shoppingList } =
-    useContext(ShoppingListStoreContext);
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import RemoveIcon from "../components/RemoveIcon";
+import { Checkbox } from "@mui/material";
+
+export const ShoppingList = observer(() => {
+  const {
+    removeFromShoppingList,
+    addToShoppingList,
+    updateShoppingList, shoppingList,
+  } = useContext(ShoppingListStoreContext);
   const { t } = useTranslation();
-  const [item, setItem] = useState<any>();
+  const [item, setItem] = useState<ShoppingListItem>({
+    id: "",
+    title: "",
+    price: 0,
+    quantity: "",
+    picked: false,
+  });
 
   return (
     <div className="flex justify-center p-5">
@@ -21,31 +35,40 @@ export const ShoppingList = observer(({}: {}) => {
           <input
             placeholder={t("item.title")}
             onChange={(e) => {
-              setItem({ ...item, title: e.target.value });
+              setItem((prevItem) => ({
+                ...prevItem,
+                title: e.target.value,
+              }));
             }}
           />
           <input
             placeholder={t("item.price")}
             onChange={(e) => {
-              setItem({ ...item, price: e.target.value });
+              setItem((prevItem) => ({
+                ...prevItem,
+                price: parseFloat(e.target.value),
+              }));
             }}
           />
           <input
             placeholder={t("item.quantity")}
             onChange={(e) => {
-              setItem({ ...item, quantety: e.target.value });
+              setItem((prevItem) => ({
+                ...prevItem,
+                quantity: e.target.value,
+              }));
             }}
           />
           <button
             onClick={() =>
               addToShoppingList({
-                id: 1,
+                id: uuidv4(),
                 title: item.title,
                 price: item.price,
                 quantity: item.quantity,
                 picked: false,
               }).finally(() => {
-                alert("Item added to shopping list");
+                Swal.fire("Item added to shopping list");
               })
             }
           >
@@ -61,30 +84,47 @@ export const ShoppingList = observer(({}: {}) => {
               <tr>
                 <th>{t("item.title")}</th>
                 <th>{t("item.price")}</th>
-                <th>{t("item.quantity")}</th>
+                {/*<th>{t("item.quantity")}</th>*/}
                 <th>{t("item.picked")}</th>
-                <th>{t("Remove")}</th>
+                <th>{t("item.remove")}</th>
               </tr>
             </thead>
             <tbody>
-              {shoppingList?.map((list: any) => {
+              {shoppingList?.map((listItem: ShoppingListItem) => {
                 return (
-                  <tr>
-                    <td>{list.title}</td>
-                    <td>{list.price}</td>
-                    <td>{Math.round(list.quantity)}</td>
+                  <tr key={listItem.id}>
+                    <td
+                      className={
+                        listItem.picked === true
+                          ? "line-through decoration-[#7EB5F4] decoration-2"
+                          : ""
+                      }
+                    >
+                      {listItem.title} x{" "}
+                      {Math.round(parseInt(listItem.quantity))}
+                    </td>
+                    <td>{listItem.price} Kr</td>
+                    {/* <td>{Math.round(parseInt(listItem.quantity))}</td> */}
                     <td>
-                      <input type="checkbox" value={list.picked} />
+                      <Checkbox
+                        checked={listItem.picked}
+                        onChange={() => updateShoppingList(listItem.id)}
+                      />
                     </td>
                     <td>
                       <div
                         onClick={() => {
-                          removeFromShoppingList(list.id).finally(() => {
-                            alert("Item has been removed from shopping list");
+                          removeFromShoppingList(listItem.id).finally(() => {
+                            Swal.fire(
+                              `Item with id ${listItem.id.slice(
+                                0,
+                                6
+                              )} has been removed from shopping list`
+                            );
                           });
                         }}
                       >
-                        X
+                        <RemoveIcon />
                       </div>
                     </td>
                   </tr>

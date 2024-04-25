@@ -7,7 +7,8 @@
     "title": "Namn",
     "price": "Pris",
     "quantity": "Antal",
-    "picked": "Plockad"
+    "picked": "Plockad",
+    "remove": "Ta bort"
   },
   "general": {
     "save": "Spara"

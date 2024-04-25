@@ -7,7 +7,8 @@
     "title": "Title",
     "price": "Price",
     "quantity": "Quantity",
-    "picked": "Picked"
+    "picked": "Picked",
+    "remove": "Remove"
   },
   "general": {
     "save": "Save"
