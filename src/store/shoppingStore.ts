@@ -28,6 +28,9 @@ class ShoppingListStore {
       const updatedList = this.shoppingList.map((item) => {
         if (item.title.toLowerCase() === shoppingItem.title.toLowerCase()) {
           itemExists = true;
+          if (item.price !== shoppingItem.price) {
+            item.price = shoppingItem.price;
+          }
           item.quantity = `${+item.quantity + +shoppingItem.quantity}`;
         }
         return item;
