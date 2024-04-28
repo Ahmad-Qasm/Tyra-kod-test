@@ -154,7 +154,9 @@ export const ShoppingList = observer(() => {
                   quantity: item.quantity,
                   picked: false,
                 }).finally(() => {
-                  Swal.fire("Item added to shopping list");
+                  Swal.fire(
+                    `${item.title} ` + `${t("general.addItemNotification")}`
+                  );
                   setItem({
                     id: "",
                     title: "",

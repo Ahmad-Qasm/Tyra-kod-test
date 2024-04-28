@@ -14,6 +14,7 @@
   "general": {
     "save": "Add item",
     "toBuy":"What do you need to buy?",
-    "removeItemNotification": "has been removed from shopping list"
+    "removeItemNotification": "has been removed from shopping list",
+    "addItemNotification": " has been added to shopping list"
   }
 }

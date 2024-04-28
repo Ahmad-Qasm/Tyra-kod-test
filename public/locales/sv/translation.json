@@ -14,6 +14,7 @@
   "general": {
     "save": "Lägg till objekt",
     "toBuy": "Vad behöver du köpa?",
-    "removeItemNotification": "har tagits bort från inköpslistan"
+    "removeItemNotification": "har tagits bort från inköpslistan",
+    "addItemNotification": "har lagts till i inköpslistan"
   }
 }
