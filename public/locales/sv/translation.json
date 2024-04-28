@@ -1,16 +1,19 @@
 {
   "shoppingStore": {
-    "addItemsToList": "Lägg till produkter till shoppinglistan för TYRA's kaffe rast",
+    "addItemsToList": "Lägg till föremål för Tyra's kafferast!",
     "shoppingList": "Shopping lista"
   },
   "item": {
     "title": "Namn",
     "price": "Pris",
+    "total": "Totalt",
     "quantity": "Antal",
     "picked": "Plockad",
     "remove": "Ta bort"
   },
   "general": {
-    "save": "Spara"
+    "save": "Lägg till objekt",
+    "toBuy": "Vad behöver du köpa?",
+    "removeItemNotification": "har tagits bort från inköpslistan"
   }
 }

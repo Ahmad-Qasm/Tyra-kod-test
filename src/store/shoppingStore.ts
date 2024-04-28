@@ -1,39 +1,16 @@
 import React from "react";
 import { makeAutoObservable } from "mobx";
-import { v4 as uuidv4 } from "uuid";
 
 export interface ShoppingListItem {
   id: string;
   title: string;
-  price: number;
+  price: string;
   quantity: string;
   picked: boolean;
 }
 
 class ShoppingListStore {
-  shoppingList: ShoppingListItem[] = [
-    {
-      id: uuidv4(),
-      title: "Tomater",
-      price: 12,
-      quantity: "2",
-      picked: false,
-    },
-    {
-      id: uuidv4(),
-      title: "Bananer",
-      price: 12,
-      quantity: "3",
-      picked: true,
-    },
-    {
-      id: uuidv4(),
-      title: "Kycklingfile fryst",
-      price: 79,
-      quantity: "1",
-      picked: false,
-    },
-  ];
+  shoppingList: ShoppingListItem[] = [];
   
   constructor() {
     makeAutoObservable(this);
@@ -44,7 +21,23 @@ class ShoppingListStore {
   };
 
   addToShoppingList = async (shoppingItem: ShoppingListItem) => {
-    this.setShoppingList([...this.shoppingList, shoppingItem]);
+    if (this.shoppingList.length <= 0) {
+      return this.setShoppingList([shoppingItem]);
+    } else {
+      let itemExists = false;
+      const updatedList = this.shoppingList.map((item) => {
+        if (item.title.toLowerCase() === shoppingItem.title.toLowerCase()) {
+          itemExists = true;
+          item.quantity = `${+item.quantity + +shoppingItem.quantity}`;
+        }
+        return item;
+      });
+
+      if (!itemExists) {
+        updatedList.push(shoppingItem);
+      }
+      this.setShoppingList(updatedList);
+    }
   };
 
   updateShoppingList = async (shoppingItemId: string) => {

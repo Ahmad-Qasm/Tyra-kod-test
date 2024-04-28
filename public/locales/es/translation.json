@@ -1,16 +1,19 @@
 {
   "shoppingStore": {
-    "addItemsToList": "Agregar elementos a la lista de compras para el descanso de café de TYRA",
+    "addItemsToList": "¡Agrega artículos para el descanso del café de Tyra!",
     "shoppingList": "Lista de compras"
   },
   "item": {
     "title": "Título",
     "price": "Precio",
     "quantity": "Cantidad",
+    "total": "Total",
     "picked": "Seleccionado",
     "remove": "Eliminar"
   },
   "general": {
-    "save": "Guardar"
+    "save": "Agregar elemento",
+    "toBuy": "¿Qué necesitas comprar?",
+    "removeItemNotification" : "se ha eliminado de la lista de compras"
   }
 }
