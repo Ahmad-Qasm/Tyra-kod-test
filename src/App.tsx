@@ -6,8 +6,8 @@ import Flags from "country-flag-icons/react/3x2";
 function App() {
   return (
     <>
-      <div className="App flex">
-        <div className="flex flex-col items-center w-1/4 bg-[#E2F9DF] h-screen border-r-4">
+      <div className="App flex ">
+        <div className="flex flex-col items-center w-1/4 bg-[#877EAF] h-screen border-r-4">
           <div className={"flex space-x-5 items-center py-4"}>
             <div className="w-[30px] rounded-full h-[30px] hover:scale-110 overflow-hidden text-center justify-center align-middle">
               <Flags.SE
@@ -51,7 +51,7 @@ function App() {
             </a>
           </div>
         </div>
-        <div className="flex flex-col items-center w-3/4 bg-gray h-screen">
+        <div className="">
           <ShoppingList />
         </div>
       </div>
